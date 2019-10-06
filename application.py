@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, url_for
 from wtform_fields import * 
 from models import *
+from flask_login import LoginManager, current_user, login_user, logout_user
 
 #configure app
 app = Flask(__name__)
@@ -10,6 +11,13 @@ app.secret_key = 'replace later'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://zbytcmxkhiggzp:02e5675a8aff5bc4419533ee202700058159332473fa690c5e33049346c7c576@ec2-174-129-227-128.compute-1.amazonaws.com:5432/del0nnt046csgm'
 db = SQLAlchemy(app)
 
+#configure flask login
+login = LoginManager(app)
+login.init_app(app)
+
+@login.user_loader
+def load_user(id):
+   return User.query.get(int(id))
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -33,9 +41,23 @@ def index():
 def login():
    login_form = LoginForm();
    if login_form.validate_on_submit():
-      return "logged in finally"
+      user_object = User.query.filter_by(username = login_form.username.data).first()
+      login_user(user_object)
+      return redirect(url_for('chat'))
    
    return render_template("login.html", form=login_form)
+
+@app.route('/chat', methods=['GET', 'POST'])
+def chat():
+   if not current_user.is_authenticated:
+      return "Please Log in first"
+   
+   return "Chat with me"
+
+@app.route('/logout', methods=['GET'])
+def logout():
+   logout_user()
+   return "logged out"
 
 if __name__ == "__main__":
     app.run(debug=True)
