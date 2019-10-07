@@ -11,11 +11,23 @@ document.addEventListener('DOMContentLoaded', function() {
         if (data.username) {
             span_username.innerHTML = data.username;
             span_timestamp.innerHTML = data.time_stamp;
-            p.innerHTML = span_username.outerHTML+br.outerHTML+data.msg+br.outerHTML+span_timestamp.outerHTML;
+            p.innerHTML = span_username.outerHTML+data.msg;
+            if (data.username == username) {
+                span_timestamp.id="timestamp-user"
+                p.id = "user-message";
+            } else {
+                span_timestamp.id="timestamp-friend"
+                p.id = "friend-message";
+            }
             document.querySelector("#display-message-section").append(p);
+            document.querySelector("#display-message-section").append(span_timestamp);
         } else {
             printSysMsg(data.msg);
         }
+
+        //Scroll bottom to the new message
+        var displayMessage = document.querySelector("#display-message-section");
+        displayMessage.scrollTo(0, displayMessage.scrollHeight);
     });
 
     /*
@@ -31,8 +43,11 @@ document.addEventListener('DOMContentLoaded', function() {
    });
 
     document.querySelector('#send_message').onclick = function() {
-        socket.send({'msg':document.querySelector('#user_message').value, 'username':username, 'room':room});
-        document.querySelector('#user_message').value = "";
+        // send data only when user enters something
+        if (document.querySelector('#user_message').value != '') {
+            socket.send({'msg':document.querySelector('#user_message').value, 'username':username, 'room':room});
+            document.querySelector('#user_message').value = "";
+        }
     }
 
     //Room  selection
@@ -56,10 +71,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function joinRoom(room) {
         socket.emit('join', {'username':username, 'room':room});
+        document.querySelector('#display-message-section').innerHTML = "";
     }
 
     function printSysMsg(msg) {
         const p = document.createElement('p');
+        p.id = "notify-message";
         p.innerHTML=msg;
         document.querySelector('#display-message-section').append(p);
     }

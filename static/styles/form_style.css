@@ -1,0 +1,62 @@
+h1 {
+    text-align: center;
+    color: aliceblue;
+}
+
+body {
+    background-color: black;
+    text-align: center;
+}
+
+#login-box {
+    margin-top: 3em;
+    color: azure;
+}
+
+#login-box a{
+    color: chocolate;
+    text-decoration: none;
+}
+
+form {
+    padding: 20px;
+    background-color: black;
+    border: solid 1px white;
+    border-radius: 8px;
+    display:inline-block;
+    width: auto;
+}
+
+form div .form-control {
+    margin-bottom: 15px;
+    border-radius: 10px;
+    padding: 5px;
+    border: solid 2px white;
+    background-color: black;
+    color: aliceblue;
+    text-align: center;
+    outline: none;
+    font-weight: bold;
+}
+
+form div .form-control:focus {
+    border: solid 2px blue;
+    border-radius: 15px;
+    transition: 0.5s;
+}
+
+form div #submit-button {
+    background-color: rgb(43, 40, 40);
+    color: aliceblue;
+    border: solid 2px;
+    border-radius: 10px;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+form div #submit-button:hover {
+    border-color: blue;
+    transition: 0.3s;
+}

@@ -1,0 +1,180 @@
+
+h2 {
+    text-align: center;
+    color: aliceblue;
+    font-size: 30px;
+}
+
+body {
+    background-color: black;
+}
+
+#headbar {
+    background-color: rgb(6, 164, 175);
+    padding: 10px;
+    padding-bottom: 5px;
+    border-radius:5px;
+    margin-bottom: 5px;
+}
+
+#main-section {
+    position: relative;
+    text-align: center;
+    height:40vh;
+}
+
+#main-section #sidebar {
+    width: 250px;
+    position: absolute;
+    float:left;
+    border-radius: 5px 0 0 5px;
+    background-color:rgb(134, 169, 172);
+    padding: 10px;
+    bottom: 0;
+    top: 0;
+}
+
+#main-section #sidebar h4 {
+    color: aliceblue;
+    font-weight: bold;
+    background-color: rgb(0, 78, 83);
+    padding: 20px;
+    margin-top:-5px;
+}
+
+#main-section #sidebar .select-room {
+    color: aliceblue;
+    font-weight: bold;
+    background-color: rgb(2, 130, 139);
+    padding: 10px;
+    margin-top: -15px;
+}
+
+#main-section #sidebar .select-room:hover {
+    background-color: rgb(0, 79, 85);
+    cursor: pointer;
+} 
+
+#main-section .rightside-panel {
+    position: absolute;
+    left:270px;
+    right: 0%;
+    height: 100%;
+}
+
+#main-section .rightside-panel #display-message-section {
+    position: absolute;
+    width: 100%;
+    border:solid 5px rgb(46, 212, 185);
+    border-bottom: none;
+    border-radius: 0 5px 0 0;
+    background-color: rgb(254, 255, 209);
+    bottom: 45px;
+    top:0;
+    overflow-y: scroll;
+}
+
+#main-section .rightside-panel #input-area {
+    position: absolute;
+    height: 45px;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(6, 164, 175);
+    border:solid 5px rgb(6, 164, 175);
+}
+
+#main-section .rightside-panel #input-area #user_message{
+    position: relative;
+    top:7px;
+    width: 80%;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    padding: 5px;
+    border: solid 2px rgb(74, 4, 202);
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    text-align: center;
+    outline: none;
+    font-weight: bold;
+}
+
+#main-section .rightside-panel #input-area #user_message:focus {
+    border: solid 2px black;
+}
+
+#main-section .rightside-panel #input-area #send_message{
+    position: relative;
+    top: 7px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(74, 4, 202);
+    border: solid 2px rgb(74, 4, 202);
+    border-radius: 10px;
+    padding: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+#main-section .rightside-panel #input-area #send_message:hover {
+    cursor: pointer;
+}
+
+#main-section .rightside-panel #display-message-section #notify-message {
+    background-color: rgb(255, 216, 166);
+    border-radius: 15px;
+    padding:7px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(13, 15, 15);
+}
+
+#main-section .rightside-panel #display-message-section #friend-message,
+#main-section .rightside-panel #display-message-section #user-message {
+    background-color: rgb(149, 168, 177);
+    border-radius: 15px;
+    padding:25px;
+    margin-left: 80px;
+    margin-right: 10px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(255, 255, 255);
+    text-align: left;
+    font-weight: bold;
+}
+
+#main-section .rightside-panel #display-message-section #user-message {
+    margin-left: 10px;
+    margin-right: 80px;
+    background-color: rgb(60, 180, 240);
+    content: justify;
+}
+
+#main-section .rightside-panel #display-message-section #friend-message span {
+    position: relative;
+    background-color: rgb(206, 241, 241);
+    color:black;
+    padding: 10px;
+    left: -100px;
+    top: -10px;
+    border-radius: 50px;
+    margin-right: 20px;
+}
+
+#main-section .rightside-panel #display-message-section #user-message span {
+    display:none;
+}
+
+#main-section .rightside-panel #display-message-section #timestamp-user,
+#main-section .rightside-panel #display-message-section #timestamp-friend {
+    font-family: sans-serif;
+    font-size: 0.8em;
+    position: relative;
+    top:-20px;
+    left: -450px;
+    font-weight: normal;
+    color: black;
+}
+
+#main-section .rightside-panel #display-message-section #timestamp-friend {
+    left: -380px;
+}

@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/chat_style.css') }}">
 <head>
     <meta charset="utf-8">
-    <title>ChatRoom</title>
+    <title>ChatRoom - AmritChat</title>
 </head>
 
 <body>
     <!-- navigation bar -->
-    <nav>
-
+    <nav id="headbar">
+        <h2>ChatRoom</h2>
     </nav>
 
     <div id="main-section">
@@ -22,7 +23,7 @@
         </nav>
 
         <!-- Message area -->
-        <div class="rightside-pannel">
+        <div class="rightside-panel">
             <!-- display message -->
             <div id="display-message-section">
 

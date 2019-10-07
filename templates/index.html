@@ -5,15 +5,18 @@
 {% block title %}Registration{% endblock %} 
 
 {% block content %}
-    <h1>Get started</h1>
-    <form action="{{ url_for('index')}}", method="POST">
-
+    <h1>Register Now</h1>
+    <form action="{{ url_for('index') }}", method="POST">
         {{ displayField(form.username, 'Username', autocomplete="off", autofocus=true) }}
         {{ displayField(form.password, 'Password') }}
         {{ displayField(form.confirm_pswd, 'Retype Password') }}
         <div>
-            {{ form.submit_button }}
+            {{ form.submit_button(id="submit-button") }}
         </div>
         {{ form.csrf_token }}
     </form>
+
+    <div id="login-box">
+        <span>Already had a account - <a href="{{ url_for('login') }}">Login Here</a></span>
+    </div>
 {% endblock %}
