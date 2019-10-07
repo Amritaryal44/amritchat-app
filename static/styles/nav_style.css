@@ -1,0 +1,33 @@
+#headbar #nav-mobile {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: url('../image/nav_button.png');
+    background-size: 40px 40px;
+    display: none;
+}
+
+
+@media only screen and (max-width: 768px) {
+    #main-section #sidebar {    
+        display: none;
+    }
+
+    #main-section .rightside-panel {
+        position: static;
+    }
+
+    #headbar #nav-mobile {
+        display: block;
+    }
+
+    #main-section .rightside-panel #input-area {
+        height: 80px;
+    }
+}
+
+@media only screen and (min-width: 415px) {
+    #main-section .rightside-panel #input-area {
+        height: 45px;
+    }
+}

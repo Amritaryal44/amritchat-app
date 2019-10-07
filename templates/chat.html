@@ -2,15 +2,21 @@
 <html lang="en" dir="ltr">
 
 <link rel="stylesheet" href="{{ url_for('static', filename='styles/chat_style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/nav_style.css') }}">
+
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>ChatRoom - AmritChat</title>
 </head>
 
 <body>
     <!-- navigation bar -->
     <nav id="headbar">
+        <div id="nav-mobile"></div>
         <h2>ChatRoom</h2>
+        <a id="logout-button" href="{{ url_for('logout') }}">Log Out</a>
     </nav>
 
     <div id="main-section">

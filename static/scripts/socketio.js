@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
             socket.send({'msg':document.querySelector('#user_message').value, 'username':username, 'room':room});
             document.querySelector('#user_message').value = "";
         }
-    }
+    };
 
     //Room  selection
     document.querySelectorAll('.select-room').forEach(p => {
@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
+    // costom functions for room selection
     function leaveRoom(room) {
         socket.emit('leave', {'username':username, 'room':room});
     } 
@@ -79,5 +80,30 @@ document.addEventListener('DOMContentLoaded', function() {
         p.id = "notify-message";
         p.innerHTML=msg;
         document.querySelector('#display-message-section').append(p);
+    }
+
+    document.querySelector('#nav-mobile').onclick = function() {
+        if (document.querySelector('#sidebar').style.display == "none") {
+            document.querySelector('#sidebar').style.display = "block";
+            document.querySelector('#sidebar').style.position = "fixed";
+            document.querySelector('#sidebar').style.top = "120px";
+            document.querySelector('#sidebar').style.zIndex = "1";
+        } else {
+            document.querySelector('#sidebar').style.display = "none";
+            document.querySelector('.rightside-panel').style.position = "static";
+        }
+    };
+});
+
+window.addEventListener('resize', function() {
+    if (window.outerWidth > 768) {
+        document.querySelector('#sidebar').style.display = "block";
+        document.querySelector('.rightside-panel').style.position = "absolute";
+        document.querySelector('#sidebar').style.position = "absolute"  ;
+        document.querySelector('#sidebar').style.top = "0px";
+        document.querySelector('#sidebar').style.zIndex = "-1";
+    } else {
+        document.querySelector('#sidebar').style.display = "none";
+        document.querySelector('.rightside-panel').style.position = "static";
     }
 });

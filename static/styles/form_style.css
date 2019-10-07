@@ -20,7 +20,7 @@ body {
 
 form {
     padding: 20px;
-    background-color: black;
+    background-color:rgb(60, 180, 240);
     border: solid 1px white;
     border-radius: 8px;
     display:inline-block;
@@ -32,8 +32,8 @@ form div .form-control {
     border-radius: 10px;
     padding: 5px;
     border: solid 2px white;
-    background-color: black;
-    color: aliceblue;
+    background-color: rgb(255, 216, 166);
+    color: rgb(14, 77, 133);
     text-align: center;
     outline: none;
     font-weight: bold;
@@ -59,4 +59,15 @@ form div #submit-button {
 form div #submit-button:hover {
     border-color: blue;
     transition: 0.3s;
+}
+
+#flash-message {
+    color: aliceblue;
+}
+
+form div ul {
+    list-style-type: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(255, 0, 0);
+    font-weight: bold;
 }
