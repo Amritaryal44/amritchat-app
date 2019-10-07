@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, render_template, redirect, url_for, flash
 from wtform_fields import * 
 from models import *
@@ -8,10 +10,10 @@ from time import localtime, strftime
 
 #configure app
 app = Flask(__name__)
-app.secret_key = 'replace later'
+app.secret_key = os.environ.get('SECRET')
 
 # configure database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://zbytcmxkhiggzp:02e5675a8aff5bc4419533ee202700058159332473fa690c5e33049346c7c576@ec2-174-129-227-128.compute-1.amazonaws.com:5432/del0nnt046csgm'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 db = SQLAlchemy(app)
 
 #configure flask login
@@ -90,5 +92,5 @@ def leave(data):
    send({'msg':data['username']+" has left the "+data['room']+" room."}, room=data['room'])
 
 if __name__ == "__main__":
-   socketio.run(app, debug=True)
+   app.run()
 
